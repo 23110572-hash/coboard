@@ -1,0 +1,31 @@
+{
+  "name": "syncboard-server",
+  "version": "1.0.0",
+  "description": "SyncBoard Collaborative Kanban Backend",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.1",
+    "@prisma/client": "^5.14.0",
+    "fastify": "^4.27.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/uuid": "^9.0.8",
+    "prisma": "^5.14.0",
+    "tsx": "^4.10.5",
+    "typescript": "^5.4.5"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}
