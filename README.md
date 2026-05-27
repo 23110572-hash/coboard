@@ -7,7 +7,7 @@ Coboard is a real-time project board built with a Next.js frontend, a Fastify ba
 The project is split into two apps:
 
 - `client`: Next.js frontend, deployed on Vercel
-- `server`: Fastify API backend, designed to run on Railway
+- `server`: Fastify API backend, designed to run on Render
 - Database: Neon PostgreSQL, managed through Prisma
 
 ---
@@ -44,7 +44,7 @@ After inserting Card 3 between them:
 - Database: Neon PostgreSQL
 - ORM: Prisma
 - Frontend hosting: Vercel
-- Backend hosting: Railway
+- Backend hosting: Render
 
 ---
 
@@ -158,20 +158,20 @@ datasource db {
 }
 ```
 
-### Railway Backend
+### Render Backend
 
-Deploy the backend service from this repository. The included `railway.json` tells Railway to build and start the backend from the `server` folder.
+Deploy the backend service from this repository. The included `render.yaml` tells Render to build and start the backend from the `server` folder.
 
-Set this Railway environment variable:
+Set this Render environment variable:
 
 ```env
 DATABASE_URL=your-neon-postgres-connection-string
 ```
 
-Railway start command:
+Render start command:
 
 ```bash
-cd server && npm start
+npm start
 ```
 
 The server start script runs:
@@ -189,7 +189,7 @@ Deploy the frontend to Vercel from this repository. The included `vercel.json` b
 Set this Vercel environment variable:
 
 ```env
-NEXT_PUBLIC_API_URL=https://your-railway-backend-url
+NEXT_PUBLIC_API_URL=https://your-render-backend-url
 ```
 
 Do not put the Neon database URL in Vercel. The frontend should only know the public backend URL.
@@ -214,10 +214,10 @@ NEXT_PUBLIC_API_URL=http://localhost:5000
 Vercel production:
 
 ```env
-NEXT_PUBLIC_API_URL=https://your-railway-backend-url
+NEXT_PUBLIC_API_URL=https://your-render-backend-url
 ```
 
-Railway production:
+Render production:
 
 ```env
 DATABASE_URL=your-neon-postgres-connection-string
@@ -242,7 +242,7 @@ DATABASE_URL=your-neon-postgres-connection-string
 ## Notes
 
 - Local frontend should use `http://localhost:5000`.
-- Production frontend should use the Railway backend URL.
+- Production frontend should use the Render backend URL.
 - Backend stores all board data in Neon PostgreSQL.
 - SSE presence and board events are scoped by board ID.
-- The repository includes separate deployment config for Vercel and Railway.
+- The repository includes separate deployment config for Vercel and Render.
