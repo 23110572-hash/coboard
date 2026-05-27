@@ -2,11 +2,5 @@
   "buildCommand": "cd client && npm run build",
   "installCommand": "cd client && npm install",
   "outputDirectory": "client/.next",
-  "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_API_URL": {
-      "description": "Backend API URL",
-      "default": "http://localhost:5000"
-    }
-  }
+  "framework": "nextjs"
 }
